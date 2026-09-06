@@ -6,11 +6,11 @@ module full_adder (
     output wire sum,
     output wire carry_out
     );
-
-    // Assign sum using XOR for efficient bitwise addition
+    
+    // sum is XOR of all 3 inputs, gives 1 when an odd number of inputs are 1
     assign sum = a ^ b ^ c_in;
 
-    // Assign carry based on two-bit product terms for clarity
+    // carry_out is 1 if at least 2 of the 3 inputs are 1
     assign carry_out = (a & b) | (a & c_in) | (c_in & b);
 
 endmodule
