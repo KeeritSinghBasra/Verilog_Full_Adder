@@ -1,14 +1,14 @@
 `timescale 1ns / 1ps
 module tb_full_adder;
 
-    // Declare testbench signals
+    // testbench signals, a/b/c_in drive the dut, sum/carry_out are outputs
     reg a, b, c_in;
     wire sum, carry_out;
 
-    // Instantiate the full adder module
+    // dut = device under test
     full_adder dut (a, b, c_in, sum, carry_out);
 
-    // Dumpfile and dumpvars for waveform generation
+    // Dumpfile and dumpvars for waveform generation in gtkwave
     initial begin
         $dumpfile("fullAdderTB.vcd");      // Specify dump file name
         $dumpvars(0, tb_full_adder);        // Dump all signals in the testbench
@@ -33,7 +33,7 @@ module tb_full_adder;
         end
     endtask
 
-    // Apply test stimulus
+    // runs through all 8 possible input combos and checks each one
     initial begin
         $display("Testing Full Adder");
 
